@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neurothon</title>
+    <style>
+        .Workspace{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:30vh;
+        }
+    </style>
 </head>
 <body>
     <main class="Workspace">
@@ -14,11 +23,17 @@
             <div class="prediction-heading">
                 <h2>Top Predictions</h2>
             </div>
-            <div class="top-predictions"></div>
+            <div class="top-predictions">
+                <div class="1st">Hypertension</div>
+                <div class="2nd">headache</div>
+                <div class="3rd">stomach pain</div>
+                <div class="4th">chest pain</div>
+                <div class="5th">asthma</div>
+            </div>
             <button class="access-akinator">Access Akinator</button>
         </section>
         <section class="Input">
-            <textarea></textarea>
+            <textarea>Enter your prompt here</textarea>
             <button class="submit">Submit</button>
         </section>
     </main>
