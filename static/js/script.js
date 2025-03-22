@@ -61,6 +61,7 @@ document.querySelector(".submit-btn").addEventListener("click", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    let content = document.querySelector(".Workspace");
     const accessAkinatorBtn = document.querySelector(".access-akinator-btn");
     const predictionheading = document.querySelector(".prediction-heading");
     const topprediction = document.querySelector(".top-predictions");
@@ -68,31 +69,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const questionSetup = document.querySelector(".question-setup");
     const Input = document.querySelector(".Input");
     const loader = document.getElementById("loader");
-    const allElementsToBlur = document.querySelectorAll(".prediction-heading, .top-predictions, .akinator-info, .access-akinator-btn, .Input");
+    const allElementsToHide = document.querySelectorAll(".prediction-heading, .top-predictions, .akinator-info, .access-akinator-btn, .Input");
+    const predictions = document.querySelector(".Predictions");
 
-    // Initially hide the question setup
     questionSetup.style.display = "none";
     loader.style.display = "none";
 
     accessAkinatorBtn.addEventListener("click", function () {
-        // Apply blur effect
-        allElementsToBlur.forEach(element => {
-            element.classList.add("blur");
-        });
-
-        // Show loader effect
+        content.classList.add("blur");
         loader.style.display = "block";
 
         setTimeout(() => {
-            // Hide blurred elements
-            allElementsToBlur.forEach(element => {
+            allElementsToHide.forEach(element => {
                 element.style.display = "none";
-                element.classList.remove("blur"); // Remove blur after hiding
             });
-
-            // Hide loader and show question setup
+            content.classList.remove("blur");
             loader.style.display = "none";
             questionSetup.style.display = "flex";
-        }, 2000);
+            predictions.style.width = "40vw";
+            predictions.style.height = "65vh";
+
+        }, 2000); 
     });
 });
+
