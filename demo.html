@@ -12,6 +12,10 @@
         }
         body{
             font-family: Oswald;
+            background-image: url(Elements/bg2.jpg);
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
         }
         .Workspace{
             display: flex;
@@ -26,25 +30,58 @@
         }
         .Predictions{
             background-color: aqua;
-            width: 52vw;
+            width: 45vw;
             height: 75vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 4vh;
-            border-radius: 1rem;
+            border-radius: 3rem;
         }
+        .initial-content{
+            margin-top: 4vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1vh;
+        }
+        .gif-container {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid #8eebff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        .doctor-gif{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: none;
+            mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+        }
+        .instruction-text{
+            width: 95%;
+            font-size: 1.2em;
+            text-align: center;
+            padding: 10px;
+        }
+        
         .prediction-heading{
+            display: none;
             margin-top: 4vh;
             font-size: 1.2rem;
         }
         .top-predictions{
+            display: none;
             padding: 3vh 0;
             width: 75%;
             border: 3px solid black;
             height: 60%;
-            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -115,6 +152,14 @@
             <h1>Disease Predictor</h1>
         </section>
         <section class="Predictions">
+            <div class="initial-content">
+                <div class="gif-container">
+                    <img src="Elements/Doctor3.gif" alt="Doctor Animation" class="doctor-gif">
+                </div>
+                <p class="instruction-text">
+                    Tell me about your Symptoms in the textbox below.<br>For e.g - "I have body pain and Headache..."
+                </p>
+            </div>
             <div class="prediction-heading">
                 <h2>Top Predictions</h2>
             </div>
