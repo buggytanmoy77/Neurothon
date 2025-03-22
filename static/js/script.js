@@ -1,5 +1,9 @@
 document.querySelector(".submit-btn").addEventListener("click", function() {
     let userInput = document.querySelector(".userprompt").value;
+    if (userInput === "") {
+        alert("⚠️ Please enter your symptoms before submitting!");
+        return; 
+    }
 
     fetch("/predict", {
         method: "POST",
@@ -9,7 +13,7 @@ document.querySelector(".submit-btn").addEventListener("click", function() {
     .then(response => response.json())
     .then(predictions => {
         let predictionsContainer = document.querySelector(".top-predictions");
-        predictionsContainer.innerHTML = ""; // Clear previous results
+        predictionsContainer.innerHTML = ""; 
 
         predictions.forEach(prediction => {
             let diseaseDiv = document.createElement("div");
@@ -27,11 +31,14 @@ document.querySelector(".submit-btn").addEventListener("click", function() {
             diseaseDiv.appendChild(probability);
             predictionsContainer.appendChild(diseaseDiv);
         });
-
-        document.querySelector(".userprompt").style.display = "none";
-        document.querySelector(".submit-btn").style.display = "none";
+        document.querySelector(".initial-content").style.display = "none";
+        document.querySelector(".prediction-heading").style.display = "block";
+        predictionsContainer.style.display = "flex";
         document.querySelector(".access-akinator-btn").style.display = "block";
         document.querySelector(".akinator-info").style.display = "flex";
-        document.querySelector(".Predictions").style.height = "60";
-    });
+        document.querySelector(".userprompt").style.display = "none";
+        document.querySelector(".submit-btn").style.display = "none";
+        document.querySelector(".Predictions").style.gap = "4vh";
+    })
+    .catch(error => console.error("Error:", error));
 });
