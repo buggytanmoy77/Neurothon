@@ -8,12 +8,8 @@ document.querySelector(".submit-btn").addEventListener("click", function() {
         console.warn("User tried to submit an empty text area.");
         return;
     }
-
-    // Show loader & blur background
     loader.style.display = "block";
     content.classList.add("blur");
-
-    // Introduce a delay before sending the fetch request
     setTimeout(() => {
         fetch("/predict", {
             method: "POST",
@@ -23,7 +19,7 @@ document.querySelector(".submit-btn").addEventListener("click", function() {
         .then(response => response.json())
         .then(predictions => {
             let predictionsContainer = document.querySelector(".top-predictions");
-            predictionsContainer.innerHTML = ""; // Clear previous results
+            predictionsContainer.innerHTML = ""; 
 
             predictions.forEach(prediction => {
                 let diseaseDiv = document.createElement("div");
@@ -42,7 +38,6 @@ document.querySelector(".submit-btn").addEventListener("click", function() {
                 predictionsContainer.appendChild(diseaseDiv);
             });
 
-            // Hide loader & remove blur effect
             loader.style.display = "none";
             content.classList.remove("blur");
 
@@ -59,9 +54,45 @@ document.querySelector(".submit-btn").addEventListener("click", function() {
             console.error("Error:", error);
             alert("Something went wrong. Please try again!");
 
-            // Hide loader & remove blur effect on error
             loader.style.display = "none";
             content.classList.remove("blur");
         });
-    }, 2000); // Delay of 1 second (1000ms)
+    }, 2000);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const accessAkinatorBtn = document.querySelector(".access-akinator-btn");
+    const predictionheading = document.querySelector(".prediction-heading");
+    const topprediction = document.querySelector(".top-predictions");
+    const akinatorinfo = document.querySelector(".akinator-info");
+    const questionSetup = document.querySelector(".question-setup");
+    const Input = document.querySelector(".Input");
+    const loader = document.getElementById("loader");
+    const allElementsToBlur = document.querySelectorAll(".prediction-heading, .top-predictions, .akinator-info, .access-akinator-btn, .Input");
+
+    // Initially hide the question setup
+    questionSetup.style.display = "none";
+    loader.style.display = "none";
+
+    accessAkinatorBtn.addEventListener("click", function () {
+        // Apply blur effect
+        allElementsToBlur.forEach(element => {
+            element.classList.add("blur");
+        });
+
+        // Show loader effect
+        loader.style.display = "block";
+
+        setTimeout(() => {
+            // Hide blurred elements
+            allElementsToBlur.forEach(element => {
+                element.style.display = "none";
+                element.classList.remove("blur"); // Remove blur after hiding
+            });
+
+            // Hide loader and show question setup
+            loader.style.display = "none";
+            questionSetup.style.display = "flex";
+        }, 2000);
+    });
 });
