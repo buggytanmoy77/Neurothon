@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neurothon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <main class="Workspace">
@@ -14,13 +15,38 @@
             <div class="prediction-heading">
                 <h2>Top Predictions</h2>
             </div>
-            <div class="top-predictions"></div>
-            <button class="access-akinator">Access Akinator</button>
-        </section>
-        <section class="Input">
-            <textarea></textarea>
-            <button class="submit">Submit</button>
+            <div class="top-predictions">
+                <div class="disease">
+                    <h3 class="name">Hypertension</h3>
+                    <h3 class="probhability">0.5</h3>
+                </div>
+                <div class="disease">
+                    <h3 class="name">headache</h3>
+                    <h3 class="probhability">0.5</h3>
+                </div>
+                <div class="disease">
+                    <h3 class="name">headache</h3>
+                    <h3 class="probhability">0.5</h3>
+                </div>
+                <div class="disease">
+                    <h3 class="name">headache</h3>
+                    <h3 class="probhability">0.5</h3>
+                </div>
+                <div class="disease">
+                    <h3 class="name">headache</h3>
+                    <h3 class="probhability">0.5</h3>
+                </div>
+            </div>
+            <div class="akinator-info">
+                If you want to know what exactly what your disease is then Click on "Access Akinator"
+            </div>
+            <button class="access-akinator-btn">Access Akinator</button>
+            <div class="Input">
+                <textarea name="userprompt" class = "userprompt" id="userprompt" rows="5" cols="40" placeholder="Enter User Input"></textarea>
+                <button class="submit-btn">Submit</button>
+            </div>
         </section>
     </main>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
