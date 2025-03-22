@@ -50,6 +50,10 @@ body{
     border: 5px solid #b7f2ff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+.gif-container:hover{
+    transform: scale(1.1);
 }
 .doctor-gif{
     width: 100%;
@@ -137,4 +141,34 @@ body{
     background-color: rgb(106, 163, 255);
     border: 3px solid black;
     border-radius: 1rem;
+    transition: all 0.2s ease-in-out;
 }
+.submit-btn:hover{
+    background-color: rgb(42, 97, 185);
+    transform:scale(1.1);   
+    color: rgb(67, 65, 65);
+}
+.blur {
+    filter: blur(5px);
+    pointer-events: none;
+}
+.loader {
+    display: none;
+    position: fixed;
+    top: 44%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    z-index: 1000;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
