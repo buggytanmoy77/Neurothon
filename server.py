@@ -99,7 +99,7 @@ def next_question():
    
         final_predictions = predict_diseases(session_data['user_symptoms'], top_n=1)
         final_disease, probability = final_predictions[0]
-        return jsonify({"final_disease": f"{final_disease} ({probability:.1%})"})
+        return jsonify({"final_disease": f"{final_disease}"})
 
 if __name__ == '__main__':
     app.run(debug=True)

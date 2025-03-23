@@ -104,20 +104,16 @@ document.addEventListener("DOMContentLoaded", function () {
             element.style.display = "none";
         });
 
-        // Show questioning UI
         setTimeout(() => {
             content.classList.remove("blur");
             loader.style.display = "none";
             questionSetup.style.display = "flex";
             Predictions.style.width = "40vw";
             Predictions.style.height = "65vh";
-
-            // Start questioning
             fetchNextQuestion(); 
         }, 1000);
     });
 
-    // Function to fetch next question from server
     function fetchNextQuestion(answer = null) {
         loader.style.display = "block";
 
@@ -144,10 +140,10 @@ document.addEventListener("DOMContentLoaded", function () {
             loader.style.display = "none";
 
             if (data.question) {
-                // Show next question
+             
                 questionText.textContent = data.question;
             } else {
-                // Show final diagnosis
+              
                 questionSetup.style.display = "none";
                 final.style.display = "flex";
                 finalanswer.textContent = data.final_disease;
@@ -160,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Event listeners for yes/no buttons
+   
     yesBtn.addEventListener("click", function () {
         fetchNextQuestion("yes");
     });
