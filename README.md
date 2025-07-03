@@ -46,7 +46,7 @@ The system uses a dataset of diseases and symptoms curated from publicly availab
 This system is **not a substitute for professional medical advice**. Always consult a qualified healthcare provider for accurate diagnosis and treatment.
 
 ## 🤝 Contributing
-Contributions are welcome! Feel free to fork the repository and submit a pull request.
+Contributions are welcome! Feel free to fork the repository and submit a pull request
 
 ## 👥 Contributors
 - **[Tanmoy](https://github.com/buggytanmoy77)**
